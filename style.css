@@ -1,194 +1,320 @@
-/* ==================================== */
-/* 3. CSS สำหรับหน้าบทเรียน (Lesson Page) */
-/* ==================================== */
+/* ส่วนที่ 6: ธีมและ CSS ทั่วไป */
+:root {
+    --primary-blue: #3b82f6;
+    --dark-navy: #0f172a;
+    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-.lesson-content {
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* ใช้ Font Kanit */
+    font-family: 'Kanit', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    /* Subtle Gradient Background */
+    background: radial-gradient(circle at top right, #eaf2ff, #ffffff);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-blue);
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #1d4ed8;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #f0f4f8;
+    color: #333;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+}
+
+.btn-secondary:hover {
+    background-color: #e2e8f0;
+}
+
+/* 2. ส่วนหัว (Header) */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--dark-navy);
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar .logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo i {
+    margin-right: 10px;
+    color: var(--primary-blue);
+}
+
+.navbar .nav-links a {
+    color: white;
+    margin-left: 20px;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.navbar .nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.hamburger {
+    display: none; /* ซ่อนบน Desktop */
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* 3. ส่วน Hero Section และ Sidebar Layout */
+.main-layout {
     display: flex;
     gap: 30px;
     margin-top: 20px;
 }
 
-.lesson-details {
-    flex: 3; /* ให้ส่วนรายละเอียดใช้พื้นที่ประมาณ 70% */
-    background-color: white;
-    padding: 30px;
+/* 3. ส่วน Hero Section */
+.hero-section {
+    flex-grow: 1;
+    min-height: 350px;
+    background-image: url('placeholder-hero.jpg'); /* ต้องมีภาพนี้ หรือใช้สีพื้นหลัง */
+    background-size: cover;
+    background-position: center;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-.lesson-details h1 {
-    font-size: 2.5rem;
-    color: var(--dark-navy);
-}
-
-.lesson-details h2 {
-    font-size: 1.2rem;
-    color: #666;
-    margin-bottom: 20px;
-}
-
-/* 3D Model / AR Viewer Placeholder */
-.ar-viewer-placeholder {
-    height: 400px;
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin: 30px 0;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    position: relative;
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-size: 1.2rem;
-    color: var(--primary-blue);
-    font-weight: 600;
 }
 
-/* Right Side: Sidebar */
-.lesson-sidebar {
-    flex: 1; /* ให้ Sidebar ใช้พื้นที่ประมาณ 30% */
-    height: fit-content;
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.75) 30%, rgba(0, 0, 0, 0.2) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 40px;
+    max-width: 60%;
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+/* 4. ส่วนข้อมูลเสริม (Sidebar) */
+.info-panel {
+    flex-basis: 300px;
+    background-color: white;
     padding: 20px;
-    background-color: #ffffff;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--card-shadow);
+    height: fit-content;
 }
 
-.lesson-sidebar h3 {
+.info-panel h3 {
     color: var(--dark-navy);
-    border-bottom: 2px solid var(--primary-blue);
-    padding-bottom: 5px;
-    margin-bottom: 15px;
+    margin-top: 0;
 }
 
-.lesson-sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 20px;
-}
-
-.lesson-sidebar ul li {
-    margin-bottom: 10px;
-}
-
-.lesson-sidebar ul li a {
-    display: block;
-    padding: 5px 0;
-    color: #333;
-}
-
-.lesson-sidebar ul li a:hover {
+.info-panel .score-info span {
+    font-weight: 600;
     color: var(--primary-blue);
-    text-decoration: underline;
 }
 
-.action-buttons button {
-    margin-bottom: 10px;
+.info-panel hr {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 15px 0;
 }
 
-.full-width {
-    width: 100%;
+.github-link {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.9rem;
 }
 
-.specs-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
+.github-link i {
+    margin-right: 5px;
+    color: #444;
 }
 
-.specs-table th, .specs-table td {
-    border: 1px solid #eee;
-    padding: 10px;
-    text-align: left;
+/* 5. ส่วนบทเรียน (Lesson Cards Grid) */
+.lesson-grid-section {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
 }
-
-.specs-table th {
-    background-color: #f4f7fa;
-    width: 40%;
-}
-
-/* Responsive for Lesson Page */
-@media (max-width: 900px) {
-    .lesson-content {
-        flex-direction: column; /* Stacked on smaller screens */
-    }
-}
-/* ==================================== */
-/* 5. ปรับปรุง CSS สำหรับ Lesson Cards และ Icon */
-/* ==================================== */
 
 .lesson-grid {
-    /* ใช้ Grid เดิม */
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(3, 1fr); /* 3 คอลัมน์บน Desktop */
     gap: 20px;
     margin-top: 20px;
 }
 
 .lesson-card {
-    /* ปรับปรุง Card */
     display: flex;
-    align-items: center; /* จัดให้อยู่กึ่งกลางในแนวตั้ง */
+    align-items: center;
     background-color: white;
-    padding: 25px; /* เพิ่ม padding เล็กน้อย */
-    border-radius: 12px; /* โค้งมนมากขึ้น */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); /* เพิ่มเงาให้ดูมีมิติ */
-    transition: all 0.3s ease;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
     text-align: left;
     color: #333;
-    border: none; /* ลบ border เดิมออก */
+    border: 1px solid #eee;
 }
 
 .lesson-card:hover {
-    transform: translateY(-8px); /* ยกตัวขึ้นมากขึ้นเมื่อวางเมาส์ */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* สไตล์สำหรับ Icon / Image */
 .lesson-card .card-icon {
-    /* กำหนดขนาดที่ชัดเจน */
-    width: 70px; 
-    height: 70px;
-    /* สร้างพื้นหลังให้ไอคอนดูโดดเด่น */
-    background-color: #e6f0ff; /* Light blue background */
-    padding: 10px;
-    border-radius: 8px; /* โค้งมน */
-    object-fit: contain; /* รักษาอัตราส่วนของภาพไอคอน */
-    margin-right: 20px;
-    /* เพิ่มเงาเล็กๆ ให้ Icon */
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1); 
-}
-
-/* สไตล์สำหรับข้อความ */
-.lesson-card .card-text {
-    flex-grow: 1; /* ให้ข้อความใช้พื้นที่ที่เหลือ */
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-right: 15px;
 }
 
 .lesson-card .card-text h3 {
-    margin: 0;
-    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 5px;
     color: var(--dark-navy);
 }
 
 .lesson-card .card-text p {
     font-size: 0.9rem;
     color: #666;
-    margin: 3px 0;
 }
 
 .lesson-card .lesson-path {
     display: block;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--primary-blue);
-    font-weight: 500;
+    margin-top: 5px;
 }
 
-/* Responsive ปรับขนาดไอคอนให้เล็กลงบนมือถือ */
-@media (max-width: 768px) {
-    .lesson-card {
-        padding: 20px;
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .lesson-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 คอลัมน์บน Tablet */
     }
-    .lesson-card .card-icon {
-        width: 50px;
-        height: 50px;
-        margin-right: 15px;
+}
+
+@media (max-width: 768px) {
+    /* Layout Stacked on Mobile */
+    .main-layout {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        padding: 30px;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    /* Sidebar Full Width */
+    .info-panel {
+        flex-basis: auto;
+    }
+
+    .lesson-grid {
+        grid-template-columns: 1fr; /* 1 คอลัมน์บน Mobile */
+    }
+
+    /* Mobile Navigation */
+    .navbar .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px; /* ใต้ Header */
+        left: 0;
+        background-color: var(--dark-navy);
+        padding: 10px 0;
+    }
+
+    .navbar .nav-links.active {
+        display: flex;
+    }
+
+    .navbar .nav-links a {
+        margin: 0;
+        padding: 10px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .hamburger {
+        display: block; /* แสดง Hamburger */
     }
 }
