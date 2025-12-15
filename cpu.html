@@ -4,50 +4,38 @@
 <meta charset="UTF-8">
 <title>CPU</title>
 <link rel="stylesheet" href="css/style.css">
-
-<script type="module"
-src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 
 <body>
-<header>
-  <h1>หน่วยประมวลผลกลาง (CPU)</h1>
-</header>
+<div class="lesson">
+  <h1>🔍 CPU</h1>
+  <p>
+    CPU คือหน่วยประมวลผลกลาง ทำหน้าที่ควบคุมและคำนวณการทำงานทั้งหมดของคอมพิวเตอร์
+  </p>
 
-<main>
-  <img src="images/cpu.jpg" width="300">
+  <h2>📱 AR CPU</h2>
+  <a href="https://mywebar.com" target="_blank">เปิดดู AR</a>
 
-  <h2>ความหมาย</h2>
-  <p>CPU คือหน่วยประมวลผลกลาง ทำหน้าที่ควบคุมและประมวลผลคำสั่งทั้งหมด</p>
+  <div class="quiz">
+    <h2>📝 แบบทดสอบ</h2>
+    <p>CPU มีหน้าที่อะไร?</p>
+    <label><input type="radio" name="q"> แสดงผล</label><br>
+    <label><input type="radio" name="q" id="correct"> ประมวลผล</label><br>
+    <label><input type="radio" name="q"> เก็บข้อมูล</label><br>
 
-  <h2>หน้าที่ของ CPU</h2>
-  <ul>
-    <li>ประมวลผลคำสั่ง</li>
-    <li>ควบคุมการทำงานของอุปกรณ์</li>
-    <li>คำนวณข้อมูล</li>
-  </ul>
+    <button onclick="check()">ตรวจคำตอบ</button>
+  </div>
+</div>
 
-  <h2>โมเดล 3D CPU</h2>
-  <model-viewer 
-    src="models/cpu.glb"
-    ar
-    camera-controls
-    auto-rotate
-    style="width:100%; height:350px;">
-  </model-viewer>
-
-  <h2>ขั้นตอนการติดตั้ง CPU</h2>
-  <ol>
-    <li>เปิด Socket บน Mainboard</li>
-    <li>วาง CPU ให้ตรงตำแหน่ง</li>
-    <li>ล็อก CPU ให้แน่น</li>
-  </ol>
-
-  <h2>ข้อควรระวัง</h2>
-  <ul>
-    <li>ห้ามจับขา CPU</li>
-    <li>อย่าฝืนใส่ผิดด้าน</li>
-  </ul>
-</main>
+<script src="js/score.js"></script>
+<script>
+function check(){
+  if(document.getElementById("correct").checked){
+    addScore();
+  }else{
+    alert("❌ ยังไม่ถูก");
+  }
+}
+</script>
 </body>
 </html>
