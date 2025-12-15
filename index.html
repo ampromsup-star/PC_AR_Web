@@ -1,24 +1,138 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <title>การประกอบคอมพิวเตอร์ ปวช.</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บทเรียน CPU | Computer Hardware</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Prompt', sans-serif;
+  background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  color: #fff;
+}
+
+header {
+  padding: 40px 20px;
+  text-align: center;
+  background: rgba(0,0,0,0.3);
+}
+
+header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+header p {
+  opacity: 0.9;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 30px 20px;
+}
+
+.card {
+  background: rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.card h2 {
+  margin-top: 0;
+  color: #9be7ff;
+}
+
+.cpu-img {
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  margin: 15px auto;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 24px;
+  background: linear-gradient(135deg,#00c6ff,#0072ff);
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* Quiz */
+.quiz label {
+  display: block;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.result {
+  margin-top: 15px;
+  font-weight: 600;
+}
+</style>
 </head>
+
 <body>
+
 <header>
-  <h1>การประกอบคอมพิวเตอร์เบื้องต้น</h1>
-  <p>Web + AR สำหรับระดับ ปวช.</p>
+  <h1>หน่วยที่ 1 : CPU</h1>
+  <p>รายวิชา ฮาร์ดแวร์คอมพิวเตอร์ (ปวช.)</p>
 </header>
 
-<nav>
-  <a href="cpu.html">บทที่ 1 : CPU</a>
-  <a href="quiz.html">แบบทดสอบท้ายบท</a>
-</nav>
+<div class="container">
 
-<main>
-  <h2>คำแนะนำ</h2>
-  <p>สแกน AR Marker หรือเลือกบทเรียนจากเมนูด้านบน</p>
-</main>
+  <div class="card">
+    <h2>🔍 CPU คืออะไร</h2>
+    <img src="https://i.imgur.com/9M0XnZg.png" class="cpu-img">
+    <p>
+      CPU (Central Processing Unit) คือหน่วยประมวลผลกลาง
+      ทำหน้าที่คำนวณ ควบคุม และสั่งการการทำงานทั้งหมดของคอมพิวเตอร์
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>📱 ดู CPU แบบ AR</h2>
+    <p>สแกน Marker เพื่อดูโมเดล CPU แบบ 3 มิติ</p>
+    <a class="btn" href="https://mywebar.com" target="_blank">
+      เปิด AR
+    </a>
+  </div>
+
+  <div class="card quiz">
+    <h2>📝 แบบทดสอบท้ายบท</h2>
+
+    <p>1) CPU มีหน้าที่อะไร?</p>
+    <label><input type="radio" name="q1"> แสดงผลภาพ</label>
+    <label><input type="radio" name="q1" id="correct"> ประมวลผลและควบคุม</label>
+    <label><input type="radio" name="q1"> เก็บข้อมูล</label>
+
+    <button class="btn" onclick="checkQuiz()">ตรวจคำตอบ</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+</div>
+
+<script>
+function checkQuiz(){
+  const correct = document.getElementById("correct").checked;
+  document.getElementById("result").innerHTML =
+    correct ? "✅ ถูกต้อง เยี่ยมมาก!" : "❌ ยังไม่ถูก ลองใหม่อีกครั้ง";
+}
+</script>
+
 </body>
 </html>
