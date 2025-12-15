@@ -8,34 +8,28 @@
 
 <body>
 <div class="lesson">
-  <h1>🔍 CPU</h1>
-  <p>
-    CPU คือหน่วยประมวลผลกลาง ทำหน้าที่ควบคุมและคำนวณการทำงานทั้งหมดของคอมพิวเตอร์
+  <h1>CPU – หน่วยประมวลผลกลาง</h1>
+
+  <p class="desc">
+    CPU ทำหน้าที่คำนวณ ประมวลผล และควบคุมการทำงานของระบบคอมพิวเตอร์
   </p>
 
-  <h2>📱 AR CPU</h2>
-  <a href="https://mywebar.com" target="_blank">เปิดดู AR</a>
+  <h2>🔍 ดูอุปกรณ์แบบ AR</h2>
+  <a class="btn" href="https://mywebar.com" target="_blank">เปิด AR</a>
 
+  <h2>📝 แบบทดสอบ</h2>
   <div class="quiz">
-    <h2>📝 แบบทดสอบ</h2>
-    <p>CPU มีหน้าที่อะไร?</p>
-    <label><input type="radio" name="q"> แสดงผล</label><br>
-    <label><input type="radio" name="q" id="correct"> ประมวลผล</label><br>
-    <label><input type="radio" name="q"> เก็บข้อมูล</label><br>
+    <p>CPU มีหน้าที่ใด</p>
+    <label><input type="radio" name="q" value="0"> แสดงผล</label>
+    <label><input type="radio" name="q" value="10"> ประมวลผล</label>
+    <label><input type="radio" name="q" value="0"> จัดเก็บข้อมูล</label>
 
-    <button onclick="check()">ตรวจคำตอบ</button>
+    <button onclick="checkQuiz()">ตรวจคำตอบ</button>
   </div>
+
+  <a href="index.html" class="back">⬅ กลับหน้าเมนู</a>
 </div>
 
-<script src="js/score.js"></script>
-<script>
-function check(){
-  if(document.getElementById("correct").checked){
-    addScore();
-  }else{
-    alert("❌ ยังไม่ถูก");
-  }
-}
-</script>
+<script src="js/quiz.js"></script>
 </body>
 </html>
