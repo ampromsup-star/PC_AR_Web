@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>แบบทดสอบ CPU</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<header>
+<h1>แบบทดสอบท้ายบท : CPU</h1>
+</header>
+
+<main>
+<form id="quizForm">
+<p>1. CPU มีหน้าที่ใด</p>
+<input type="radio" name="q1" value="a"> เก็บข้อมูลถาวร<br>
+<input type="radio" name="q1" value="b"> ประมวลผลคำสั่ง<br>
+<input type="radio" name="q1" value="c"> แสดงผลภาพ<br><br>
+
+<p>2. การติดตั้ง CPU ต้องระวังเรื่องใดมากที่สุด</p>
+<input type="radio" name="q2" value="a"> สีของ CPU<br>
+<input type="radio" name="q2" value="b"> การจับขา CPU<br>
+<input type="radio" name="q2" value="c"> ความเร็วพัดลม<br><br>
+
+<button type="button" onclick="checkQuiz()">ตรวจคำตอบ</button>
+</form>
+
+<p id="result"></p>
+</main>
+
+<script>
+function checkQuiz(){
+  let score = 0;
+  if(document.querySelector('input[name="q1"]:checked')?.value==="b") score++;
+  if(document.querySelector('input[name="q2"]:checked')?.value==="b") score++;
+  document.getElementById("result").innerHTML =
+    "คุณได้คะแนน " + score + " / 2 คะแนน";
+}
+</script>
+</body>
+</html>
